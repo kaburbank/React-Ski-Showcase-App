@@ -1,0 +1,64 @@
+{
+  "skis": [
+    {
+      "id": 1,
+      "name": "Alpine Pro 180",
+      "type": "All-Mountain",
+      "length": 180,
+      "price": 599.99,
+      "image": "https://via.placeholder.com/300x200?text=Alpine+Pro+180",
+      "description": "High-performance all-mountain skis for intermediate to advanced skiers",
+      "flex": "Medium",
+      "weight": "1850g",
+      "radius": "14m"
+    },
+    {
+      "id": 2,
+      "name": "Freestyle Fury",
+      "type": "Freestyle",
+      "length": 170,
+      "price": 649.99,
+      "image": "https://via.placeholder.com/300x200?text=Freestyle+Fury",
+      "description": "Perfect for park and pipe tricks with excellent flex",
+      "flex": "Soft",
+      "weight": "1650g",
+      "radius": "16m"
+    },
+    {
+      "id": 3,
+      "name": "Backcountry Beast",
+      "type": "Backcountry",
+      "length": 185,
+      "price": 799.99,
+      "image": "https://via.placeholder.com/300x200?text=Backcountry+Beast",
+      "description": "Lightweight touring skis built for off-piste adventures",
+      "flex": "Medium-Stiff",
+      "weight": "1550g",
+      "radius": "18m"
+    },
+    {
+      "id": 4,
+      "name": "Carving Crown",
+      "type": "Carving",
+      "length": 175,
+      "price": 699.99,
+      "image": "https://via.placeholder.com/300x200?text=Carving+Crown",
+      "description": "Racing-inspired carving skis for precise edge control",
+      "flex": "Stiff",
+      "weight": "1900g",
+      "radius": "12m"
+    },
+    {
+      "id": 5,
+      "name": "Beginner's Dream",
+      "type": "Beginner",
+      "length": 160,
+      "price": 349.99,
+      "image": "https://via.placeholder.com/300x200?text=Beginners+Dream",
+      "description": "Forgiving and stable skis ideal for learning",
+      "flex": "Soft",
+      "weight": "1700g",
+      "radius": "15m"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+import React, { useCallback } from 'react';
+import useForm from '../hooks/useForm';
+import '../styles/AddSkiForm.css';
+
+/**
+ * AddSkiForm Component
+ * Demonstrates: Custom hooks (useForm), useCallback
+ */
+function AddSkiForm({ onProductAdded }) {
+  const initialState = {
+    name: '',
+    type: '',
+    length: '',
+    price: '',
+    image: '',
+    description: '',
+    flex: '',
+    weight: '',
+    radius: ''
+  };
+
+  const handleSubmitForm = useCallback((data) => {
+    const newSki = {
+      id: Date.now(),
+      ...data,
+      length: parseInt(data.length) || 0,
+      price: parseFloat(data.price)
+    };
+    
+    if (onProductAdded) {
+      onProductAdded(newSki);
+    }
+  }, [onProductAdded]);
+
+  const {
+    formData,
+    submitted,
+    handleChange,
+    handleSubmit,
+    resetForm
+  } = useForm(initialState, handleSubmitForm);
+
+  return (
+    <div className="form-page">
+      <div className="form-container">
+        <h1>Add a New Ski Product</h1>
+        <p className="form-subtitle">Fill in the details below to add a new ski to our collection</p>
+        
+        {submitted && (
+          <div className="success-message">
+            ✓ Ski product added successfully!
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="ski-form">
+          <div className="form-section">
+            <h2>Basic Information</h2>
+            
+            <div className="form-group">
+              <label htmlFor="name">Ski Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="e.g., Mountain Carver Pro"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="type">Ski Type *</label>
+              <select
+                id="type"
+                name="type"
+                value={formData.type}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select a type</option>
+                <option value="All-Mountain">All-Mountain</option>
+                <option value="Freestyle">Freestyle</option>
+                <option value="Backcountry">Backcountry</option>
+                <option value="Carving">Carving</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Racing">Racing</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="price">Price (USD) *</label>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                value={formData.price}
+                onChange={handleChange}
+                placeholder="e.g., 599.99"
+                step="0.01"
+                min="0"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="description">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                placeholder="Describe the ski and its features"
+                rows="4"
+              />
+            </div>
+          </div>
+
+          <div className="form-section">
+            <h2>Technical Specifications</h2>
+            
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="length">Length (cm)</label>
+                <input
+                  type="number"
+                  id="length"
+                  name="length"
+                  value={formData.length}
+                  onChange={handleChange}
+                  placeholder="e.g., 180"
+                  min="0"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="flex">Flex</label>
+                <select
+                  id="flex"
+                  name="flex"
+                  value={formData.flex}
+                  onChange={handleChange}
+                >
+                  <option value="">Select flex</option>
+                  <option value="Soft">Soft</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Medium-Stiff">Medium-Stiff</option>
+                  <option value="Stiff">Stiff</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="weight">Weight (g)</label>
+                <input
+                  type="text"
+                  id="weight"
+                  name="weight"
+                  value={formData.weight}
+                  onChange={handleChange}
+                  placeholder="e.g., 1850g"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="radius">Radius (m)</label>
+                <input
+                  type="text"
+                  id="radius"
+                  name="radius"
+                  value={formData.radius}
+                  onChange={handleChange}
+                  placeholder="e.g., 14m"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="form-section">
+            <h2>Image</h2>
+            
+            <div className="form-group">
+              <label htmlFor="image">Image URL</label>
+              <input
+                type="url"
+                id="image"
+                name="image"
+                value={formData.image}
+                onChange={handleChange}
+                placeholder="https://example.com/image.jpg"
+              />
+              {formData.image && (
+                <div className="image-preview">
+                  <img src={formData.image} alt="Preview" onError={(e) => {e.target.style.display = 'none'}} />
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="form-actions">
+            <button type="submit" className="btn-submit">Add Ski Product</button>
+            <button type="button" onClick={resetForm} className="btn-reset">Clear Form</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default AddSkiForm;
