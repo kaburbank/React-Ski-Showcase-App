@@ -1,9 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-/**
- * Custom hook for local storage persistence
- * Demonstrates: useState, useEffect, useCallback
- */
+// Custom hook for localStorage management
 function useLocalStorage(key, initialValue) {
   // State to store our value
   const [storedValue, setStoredValue] = useState(() => {

@@ -1,14 +1,12 @@
 import { useState, useCallback } from 'react';
 
-/**
- * Custom hook for form handling with validation
- * Demonstrates: useState, useCallback
- */
+// Custom hook for form management
 function useForm(initialState, onSubmit) {
   const [formData, setFormData] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
+  // Handle input changes
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -24,12 +22,14 @@ function useForm(initialState, onSubmit) {
     }
   }, [errors]);
 
+  // Reset form to initial state
   const resetForm = useCallback(() => {
     setFormData(initialState);
     setErrors({});
     setSubmitted(false);
   }, [initialState]);
 
+  // Handle form submission
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
     

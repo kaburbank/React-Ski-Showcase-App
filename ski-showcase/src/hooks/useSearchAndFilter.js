@@ -1,21 +1,21 @@
 import { useState, useCallback, useMemo } from 'react';
 
-/**
- * Custom hook for search and filter functionality
- * Demonstrates: useState, useCallback, useMemo
- */
+// Custom hook for search and filter functionality
 function useSearchAndFilter(items, searchFields = []) {
   const [searchQuery, setSearchQuery] = useState('');
   const [filterType, setFilterType] = useState('All');
 
+  // Handlers for search and filter changes
   const handleSearchChange = useCallback((query) => {
     setSearchQuery(query);
   }, []);
 
+  // Handler for filter type change
   const handleFilterChange = useCallback((type) => {
     setFilterType(type);
   }, []);
 
+  // Reset search and filter
   const resetFilters = useCallback(() => {
     setSearchQuery('');
     setFilterType('All');

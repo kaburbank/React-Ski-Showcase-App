@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import SkiCard from './SkiCard';
 import '../styles/SkiList.css';
 
+// function SkiList Component
 function SkiList() {
   const [skis, setSkis] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Fetch skis data from local JSON file or server
   useEffect(() => {
     const fetchSkis = async () => {
       try {
@@ -49,6 +51,7 @@ function SkiList() {
     return <div className="error">Error: {error}</div>;
   }
 
+  // Render ski list
   return (
     <div className="ski-list-container">
       <h2 className="ski-list-title">Our Ski Collection</h2>

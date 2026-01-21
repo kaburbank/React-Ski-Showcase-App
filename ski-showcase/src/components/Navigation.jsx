@@ -1,7 +1,9 @@
 import React from 'react';
 import '../styles/Navigation.css';
 
+// function Navigation Component
 function Navigation({ currentPage, onPageChange }) {
+  // Render navigation bar
   return (
     <nav className="navigation">
       <div className="nav-container">

@@ -5,11 +5,7 @@ import useSkisData from '../hooks/useSkisData';
 import useSearchAndFilter from '../hooks/useSearchAndFilter';
 import '../styles/ProductsPage.css';
 
-/**
- * ProductsPage Component - Complete CRUD operations
- * Demonstrates: Custom hooks (useSkisData, useSearchAndFilter), useState
- * CRUD: Create (via form), Read (display), Update (edit), Delete (remove)
- */
+// function ProductsPage Component
 function ProductsPage({ newSkis, onSkisUpdate }) {
   const { skis, loading, error, updateSki } = useSkisData(newSkis);
   const [editingSkiId, setEditingSkiId] = useState(null);
@@ -25,6 +21,7 @@ function ProductsPage({ newSkis, onSkisUpdate }) {
     resetFilters
   } = useSearchAndFilter(skis, ['name', 'description', 'type']);
 
+  // EDIT operation - updates ski details
   const handleEditSki = (updatedSki) => {
     updateSki(updatedSki);
     setEditingSkiId(null);
@@ -33,10 +30,7 @@ function ProductsPage({ newSkis, onSkisUpdate }) {
     }
   };
 
-  /**
-   * DELETE operation - removes ski by ID
-   * Demonstrates: Array filtering with functional update pattern
-   */
+  // DELETE operation - removes ski from list
   const handleDeleteSki = (skiId) => {
     const updatedSkis = skis.filter(ski => ski.id !== skiId);
     // Update the parent component with the new list
@@ -45,6 +39,7 @@ function ProductsPage({ newSkis, onSkisUpdate }) {
     }
   };
 
+  // Find the ski being edited
   const editingSki = editingSkiId ? skis.find(ski => ski.id === editingSkiId) : null;
 
   if (loading) {
@@ -55,6 +50,7 @@ function ProductsPage({ newSkis, onSkisUpdate }) {
     return <div className="error">Error: {error}</div>;
   }
 
+  // Render products page
   return (
     <div className="products-page">
       <div className="products-header">
