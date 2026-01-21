@@ -226,7 +226,6 @@ The application includes comprehensive test coverage with **63 test cases**:
 npm test
 ```
 
-For detailed test documentation, see [TEST_SUITE_DOCUMENTATION.md](TEST_SUITE_DOCUMENTATION.md).
 
 ## 🔧 Technology Stack
 
