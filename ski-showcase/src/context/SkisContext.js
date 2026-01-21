@@ -1,24 +1,25 @@
 import { createContext, useState, useCallback, useContext } from 'react';
 
-/**
- * Context for global ski data management
- * Demonstrates: useContext, useCallback, custom hooks pattern
- */
+// Create SkisContext
 const SkisContext = createContext();
 
+// SkisProvider Component
 export function SkisProvider({ children }) {
   const [allSkis, setAllSkis] = useState([]);
 
+  // Update ski details
   const updateSki = useCallback((updatedSki) => {
     setAllSkis(prevSkis => 
       prevSkis.map(ski => ski.id === updatedSki.id ? updatedSki : ski)
     );
   }, []);
 
+  // Add new ski to the list
   const addSki = useCallback((newSki) => {
     setAllSkis(prevSkis => [...prevSkis, newSki]);
   }, []);
 
+  // Context value
   const value = {
     skis: allSkis,
     updateSki,
@@ -26,6 +27,7 @@ export function SkisProvider({ children }) {
     setAllSkis
   };
 
+  // Render provider
   return (
     <SkisContext.Provider value={value}>
       {children}

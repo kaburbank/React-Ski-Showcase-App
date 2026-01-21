@@ -2,11 +2,9 @@ import React, { useCallback } from 'react';
 import useForm from '../hooks/useForm';
 import '../styles/AddSkiForm.css';
 
-/**
- * AddSkiForm Component
- * Demonstrates: Custom hooks (useForm), useCallback
- */
+// function AddSkiForm Component 
 function AddSkiForm({ onProductAdded }) {
+  // Initial form state
   const initialState = {
     name: '',
     type: '',
@@ -19,6 +17,7 @@ function AddSkiForm({ onProductAdded }) {
     radius: ''
   };
 
+  // Handle form submission
   const handleSubmitForm = useCallback((data) => {
     const newSki = {
       id: Date.now(),
@@ -32,6 +31,7 @@ function AddSkiForm({ onProductAdded }) {
     }
   }, [onProductAdded]);
 
+  // Use custom useForm hook
   const {
     formData,
     submitted,
@@ -40,6 +40,7 @@ function AddSkiForm({ onProductAdded }) {
     resetForm
   } = useForm(initialState, handleSubmitForm);
 
+  // Render form
   return (
     <div className="form-page">
       <div className="form-container">

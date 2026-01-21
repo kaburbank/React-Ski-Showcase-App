@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import '../styles/SkiCard.css';
 
-/**
- * SkiCard Component - Displays individual ski product
- * Demonstrates: useState for local confirmation state
- */
+// function SkiCard Component
 function SkiCard({ ski, onEdit, onDelete }) {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
+  // Handle delete button click
   const handleDeleteClick = () => {
     setShowDeleteConfirm(true);
   };
 
+  // Confirm deletion
   const handleConfirmDelete = () => {
     if (onDelete) {
       onDelete(ski.id);
@@ -19,10 +18,12 @@ function SkiCard({ ski, onEdit, onDelete }) {
     setShowDeleteConfirm(false);
   };
 
+  // Cancel deletion
   const handleCancelDelete = () => {
     setShowDeleteConfirm(false);
   };
 
+  // Render ski card
   return (
     <div className="ski-card">
       <div className="ski-image-container">

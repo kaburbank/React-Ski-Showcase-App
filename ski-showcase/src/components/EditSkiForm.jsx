@@ -2,11 +2,9 @@ import React, { useCallback } from 'react';
 import useForm from '../hooks/useForm';
 import '../styles/EditSkiForm.css';
 
-/**
- * EditSkiForm Component
- * Demonstrates: Custom hooks (useForm), useCallback, form patterns
- */
+// function EditSkiForm Component
 function EditSkiForm({ ski, onSave, onCancel }) {
+  // Initial form state populated with existing ski data
   const initialState = {
     name: ski.name,
     type: ski.type,
@@ -19,6 +17,7 @@ function EditSkiForm({ ski, onSave, onCancel }) {
     radius: ski.radius
   };
 
+  // Handle form submission
   const handleSubmitForm = useCallback((data) => {
     const updatedSki = {
       ...ski,
@@ -32,6 +31,7 @@ function EditSkiForm({ ski, onSave, onCancel }) {
     }
   }, [ski, onSave]);
 
+  // Use custom useForm hook
   const {
     formData,
     submitted,
@@ -39,6 +39,7 @@ function EditSkiForm({ ski, onSave, onCancel }) {
     handleSubmit
   } = useForm(initialState, handleSubmitForm);
 
+  // Render form
   return (
     <div className="edit-form-overlay" onClick={onCancel}>
       <div className="edit-form-container" onClick={(e) => e.stopPropagation()}>

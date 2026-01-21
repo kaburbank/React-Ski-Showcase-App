@@ -1,14 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
 
-/**
- * Custom hook for fetching ski data from server or local JSON
- * Demonstrates: useState, useEffect, useCallback
- */
+// Custom hook for skis data management
 function useSkisData(newSkis = []) {
+  // State for skis data, loading status, and error handling
   const [skis, setSkis] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Fetch skis data from server or local JSON
   const fetchSkis = useCallback(async () => {
     try {
       setLoading(true);
@@ -42,12 +41,14 @@ function useSkisData(newSkis = []) {
     fetchSkis();
   }, [fetchSkis]);
 
+  // Update ski details
   const updateSki = useCallback((updatedSki) => {
     setSkis(prevSkis => 
       prevSkis.map(ski => ski.id === updatedSki.id ? updatedSki : ski)
     );
   }, []);
 
+  // Add new ski to the list
   const addSki = useCallback((newSki) => {
     setSkis(prevSkis => [...prevSkis, newSki]);
   }, []);
