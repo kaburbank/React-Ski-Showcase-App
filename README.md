@@ -1,1 +1,0 @@
-# React-Ski-Showcase-App
