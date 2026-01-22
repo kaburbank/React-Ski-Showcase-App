@@ -28,14 +28,14 @@ function App() {
       {currentPage === 'home' && (
         <>
           <header className="App-header">
-            <h1>⛷️ Ski Showcase</h1>
+            <h1>⛷️ Light and Fast Ski Shop</h1>
             <p>Discover the finest selection of skis for every skill level</p>
           </header>
           <section className="description-section">
             <div className="description-content">
-              <h2>Welcome to Ski Showcase</h2>
+              <h2>Welcome to the Light and Fast Ski Shop</h2>
               <p>
-                At Ski Showcase, we believe that finding the perfect pair of skis should be an exciting journey, not a frustrating one. 
+                At our Ski Shop, we believe that finding the perfect pair of skis should be an exciting journey, not a frustrating one. 
                 Whether you're a beginner taking your first steps on the slopes or an advanced skier pushing your limits in the backcountry, 
                 we have the perfect skis for you.
               </p>

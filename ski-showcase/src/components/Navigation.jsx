@@ -7,7 +7,7 @@ function Navigation({ currentPage, onPageChange }) {
   return (
     <nav className="navigation">
       <div className="nav-container">
-        <div className="nav-logo">⛷️ Ski Showcase</div>
+        <div className="nav-logo">⛷️ Ski Shop</div>
         <ul className="nav-menu">
           <li>
             <button 
@@ -30,7 +30,7 @@ function Navigation({ currentPage, onPageChange }) {
               className={`nav-link ${currentPage === 'add-product' ? 'active' : ''}`}
               onClick={() => onPageChange('add-product')}
             >
-              Add Product
+              Admin Portal
             </button>
           </li>
         </ul>
