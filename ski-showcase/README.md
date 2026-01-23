@@ -2,7 +2,7 @@
 
 A modern, fully-featured React e-commerce application for browsing, managing, and purchasing ski equipment. Built with functional components, custom hooks, and Context API to demonstrate advanced React patterns and best practices.
 
-## 🎯 Overview
+## Overview
 
 The Ski Showcase App is a complete CRUD application that allows users to:
 - Browse ski products with detailed specifications
@@ -14,7 +14,7 @@ The Ski Showcase App is a complete CRUD application that allows users to:
 
 The application showcases professional React development patterns including custom hooks, memoization, Context API, and comprehensive testing with React Testing Library.
 
-## ✨ Key Features
+## Key Features
 
 ### Product Management (CRUD)
 - **Create**: Add new ski products with comprehensive details (name, price, specifications, image)
@@ -55,7 +55,7 @@ The application showcases professional React development patterns including cust
 - User interaction testing
 - Edge case coverage
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 14+ installed
@@ -89,6 +89,18 @@ The application should open at [http://localhost:3000](http://localhost:3000)
 ```bash
 npm start
 ```
+
+**Local Server for Persistent Data** - Run in a separate terminal:
+```bash
+npm run server
+```
+This starts json-server on `http://localhost:3001` and watches the `public/db.json` file. The server enables:
+- Persistent product deletions (products don't reappear on refresh)
+- Persistent new product additions (added products persist across refreshes)
+- Persistent edits to existing products
+- Data synchronization across tabs/windows
+
+Without the server running, the app falls back to using local `db.json` file but changes won't persist across page refreshes.
 
 **Production Build** - Optimized bundle:
 ```bash
@@ -162,7 +174,7 @@ npm test -- --coverage --watchAll=false
 3. Results update in real-time
 4. Combine with type filter for refined results
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -172,8 +184,6 @@ src/
 ├── components/
 │   ├── SkiCard.js                  # Individual product card
 │   ├── SkiCard.css
-│   ├── SkiList.js                  # Product listing (home)
-│   ├── SkiList.css
 │   ├── ProductsPage.js             # Products with search/filter
 │   ├── ProductsPage.css
 │   ├── AddSkiForm.js               # Create product form
@@ -206,7 +216,7 @@ public/
 └── manifest.json
 ```
 
-## 🧪 Testing
+## Testing
 
 The application includes comprehensive test coverage with **63 test cases**:
 
@@ -227,7 +237,7 @@ npm test
 ```
 
 
-## 🔧 Technology Stack
+## Technology Stack
 
 - **React 18**: UI framework with hooks
 - **React Testing Library**: Component testing
@@ -236,7 +246,7 @@ npm test
 - **Context API**: State management
 - **localStorage**: Data persistence
 
-## ⚙️ Available Scripts
+## Available Scripts
 
 | Command | Description |
 |---------|-------------|
@@ -245,7 +255,7 @@ npm test
 | `npm run build` | Create production-optimized build |
 | `npm run eject` | Expose webpack configuration (irreversible) |
 
-## 🎨 Design Highlights
+## Design Highlights
 
 - **Mobile-First Approach**: Optimized for mobile, enhanced for desktop
 - **Responsive Grid**: Product grid adapts to screen size
@@ -255,7 +265,7 @@ npm test
 - **Form Validation**: Real-time field validation
 - **Confirmation Dialogs**: Prevent accidental data loss
 
-## ⚠️ Known Limitations
+## Known Limitations
 
 ### Data Persistence
 - **Limitation**: No backend database; data persists only in browser localStorage
@@ -292,7 +302,7 @@ npm test
 - **Impact**: Changes only visible to the current user's session
 - **Workaround**: Implement WebSocket or polling for multi-user environments
 
-## 🚧 Future Enhancements
+## Future Enhancements
 
 - Backend API integration with Node.js/Express
 - User authentication and role-based access
@@ -305,7 +315,7 @@ npm test
 - Inventory management
 - Payment integration (Stripe/PayPal)
 
-## 📝 Notes
+## Notes
 
 - Product data is stored in `/public/db.json` and loaded via fetch at runtime
 - All state management uses React hooks and Context API (no Redux)
@@ -313,11 +323,11 @@ npm test
 - Memoization patterns prevent unnecessary re-renders
 - Error handling includes fallback UI and user feedback
 
-## 📄 License
+## License
 
 This project is provided as-is for educational purposes.
 
-## 🤝 Support
+## Support
 
 For issues or questions, refer to:
 - [React Documentation](https://react.dev)

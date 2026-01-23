@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Navigation from '../components/Navigation';
+import Navigation from '../Navigation';
 import '@testing-library/jest-dom';
 
 describe('Navigation Component', () => {
@@ -9,7 +9,7 @@ describe('Navigation Component', () => {
       <Navigation currentPage="home" onPageChange={jest.fn()} />
     );
     
-    expect(screen.getByText(/Ski Showcase/)).toBeInTheDocument();
+    expect(screen.getByText(/Light and Fast Ski Shop/)).toBeInTheDocument();
   });
 
   it('renders all navigation links', () => {
@@ -19,7 +19,7 @@ describe('Navigation Component', () => {
     
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Products')).toBeInTheDocument();
-    expect(screen.getByText('Add Product')).toBeInTheDocument();
+    expect(screen.getByText('Admin Portal')).toBeInTheDocument();
   });
 
   it('marks current page as active', () => {
@@ -57,7 +57,7 @@ describe('Navigation Component', () => {
       <Navigation currentPage="home" onPageChange={mockOnPageChange} />
     );
     
-    fireEvent.click(screen.getByText('Add Product'));
+    fireEvent.click(screen.getByText('Admin Portal'));
     expect(mockOnPageChange).toHaveBeenCalledWith('add-product');
     
     fireEvent.click(screen.getByText('Home'));

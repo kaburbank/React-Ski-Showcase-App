@@ -7,7 +7,7 @@ function Navigation({ currentPage, onPageChange }) {
   return (
     <nav className="navigation">
       <div className="nav-container">
-        <div className="nav-logo">⛷️ Ski Shop</div>
+        <div className="nav-logo"> Light and Fast Ski Shop</div>
         <ul className="nav-menu">
           <li>
             <button 

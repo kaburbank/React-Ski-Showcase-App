@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import AddSkiForm from '../components/AddSkiForm';
+import AddSkiForm from '../AddSkiForm';
 import '@testing-library/jest-dom';
 
 describe('AddSkiForm Component', () => {
   it('renders form with all input fields', () => {
     render(<AddSkiForm onProductAdded={jest.fn()} />);
     
-    expect(screen.getByDisplayValue('Add a New Ski Product')).toBeInTheDocument();
+    expect(screen.getByText('Add a New Ski Product')).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Mountain Carver Pro/)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/599.99/)).toBeInTheDocument();
   });

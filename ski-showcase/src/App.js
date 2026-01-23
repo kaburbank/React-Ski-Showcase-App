@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
-import SkiList from './components/SkiList';
 import ProductsPage from './components/ProductsPage';
 import AddSkiForm from './components/AddSkiForm';
 
@@ -28,7 +27,7 @@ function App() {
       {currentPage === 'home' && (
         <>
           <header className="App-header">
-            <h1>⛷️ Light and Fast Ski Shop</h1>
+            <h1>Light and Fast Ski Shop</h1>
             <p>Discover the finest selection of skis for every skill level</p>
           </header>
           <section className="description-section">
@@ -59,9 +58,6 @@ function App() {
               </div>
             </div>
           </section>
-          <main className="App-main">
-            <SkiList />
-          </main>
         </>
       )}
 
@@ -74,6 +70,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;
