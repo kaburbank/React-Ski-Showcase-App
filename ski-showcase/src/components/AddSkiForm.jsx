@@ -49,7 +49,11 @@ function AddSkiForm({ onProductAdded }) {
         
         {submitted && (
           <div className="success-message">
-            ✓ Ski product added successfully!
+            <div className="success-icon">✓</div>
+            <div className="success-text">
+              <p className="success-title">Product Added Successfully!</p>
+              <p className="success-detail">"{formData.name}" has been added to the collection.</p>
+            </div>
           </div>
         )}
 

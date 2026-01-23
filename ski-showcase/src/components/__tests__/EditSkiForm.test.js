@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import EditSkiForm from '../components/EditSkiForm';
+import EditSkiForm from '../EditSkiForm';
 import '@testing-library/jest-dom';
 
 describe('EditSkiForm Component', () => {

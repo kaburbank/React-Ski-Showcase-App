@@ -7,7 +7,7 @@ import '../styles/ProductsPage.css';
 
 // function ProductsPage Component
 function ProductsPage({ newSkis, onSkisUpdate }) {
-  const { skis, loading, error, updateSki } = useSkisData(newSkis);
+  const { skis, loading, error, updateSki, deleteSki } = useSkisData(newSkis);
   const [editingSkiId, setEditingSkiId] = useState(null);
   
   // Use custom search and filter hook with memoization
@@ -32,9 +32,9 @@ function ProductsPage({ newSkis, onSkisUpdate }) {
 
   // DELETE operation - removes ski from list
   const handleDeleteSki = (skiId) => {
-    const updatedSkis = skis.filter(ski => ski.id !== skiId);
-    // Update the parent component with the new list
+    deleteSki(skiId);
     if (onSkisUpdate) {
+      const updatedSkis = skis.filter(ski => ski.id !== skiId);
       onSkisUpdate(updatedSkis);
     }
   };

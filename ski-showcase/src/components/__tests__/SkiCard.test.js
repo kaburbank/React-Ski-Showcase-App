@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import SkiCard from '../components/SkiCard';
+import SkiCard from '../SkiCard';
 import '@testing-library/jest-dom';
 
 describe('SkiCard Component', () => {
