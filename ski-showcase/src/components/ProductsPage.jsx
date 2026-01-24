@@ -96,7 +96,7 @@ function ProductsPage({ newSkis, onSkisUpdate }) {
               <SkiCard 
                 key={ski.id} 
                 ski={ski}
-                onEdit={setEditingSkiId}
+                onEdit={() => setEditingSkiId(ski.id)}
                 onDelete={handleDeleteSki}
               />
             ))
