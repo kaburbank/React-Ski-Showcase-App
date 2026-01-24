@@ -81,7 +81,7 @@ npm start
 
 The application should open at [http://localhost:3000](http://localhost:3000)
 
-## 📖 Usage
+## Usage
 
 ### Running the Application
 
